@@ -16,17 +16,24 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            node{
-                currentBuild.getUpstreamBuilds()
-                    .collect { 
-                        myObject -> echo myObject 
-                    }
-            }
+
+        stage('find upstream job') {
             steps {
-                // echo currentBuild.rawBuild.getCause(hudson.model.Cause$UpstreamCause)
-                // echo currentBuild.getUpstreamBuilds()
-                
+                script {
+                    def causes = currentBuild.rawBuild.getCauses()
+                    for(cause in causes) {
+                        if (cause.class.toString().contains("UpstreamCause")) {
+                            println "This job was caused by job " + cause.upstreamProject
+                        } else {
+                            println "Root cause : " + cause.toString()
+                        }
+                    }
+                }      
+            }
+        }
+
+        stage('Build') {
+            steps {                
                 echo 'Build'
             }
         }
