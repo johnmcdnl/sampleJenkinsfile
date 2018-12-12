@@ -22,8 +22,10 @@ pipeline {
                 script {
                     def upstreamBuilds = currentBuild.getUpstreamBuilds()
                     for(upstreamBuild in upstreamBuilds) {
-                            println "This job was caused by job " + upstreamBuild.toString()
-                            println "Root cause : " + upstreamBuild.toString()
+                            println "1) upstreamBuild.toString() " + upstreamBuild.toString()
+                            println "2) upstreamBuild.toString() : " + upstreamBuild.toString()
+                            println "3) upstreamBuild.getProjectName() : " + upstreamBuild.getProjectName()
+                            println "4) upstreamBuild : " + upstreamBuild
                     }
 
                     // def causes = currentBuild.rawBuild.getCauses()
