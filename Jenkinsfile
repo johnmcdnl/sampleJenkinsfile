@@ -28,14 +28,19 @@ pipeline {
                             println "4) upstreamBuild : " + upstreamBuild
                     }
 
-                    // def causes = currentBuild.rawBuild.getCauses()
-                    // for(cause in causes) {
-                    //     if (cause.class.toString().contains("UpstreamCause")) {
-                    //         println "This job was caused by job " + cause.upstreamProject
-                    //     } else {
-                    //         println "Root cause : " + cause.toString()
-                    //     }
-                    // }
+                    if( !upstreamBuild ){
+                        println( "Object is null\r\n" );
+                        return;
+                    }
+                    if( !upstreamBuild.metaClass && upstreamBuild.getClass() ){
+                        printAllMethods( upstreamBuild.getClass() );
+                        return;
+                    }
+                    def str = "class ${upstreamBuild.getClass().name} functions:\r\n";
+                    upstreamBuild.metaClass.methods.name.unique().each{ 
+                        str += it+"(); "; 
+                    }
+                    println "${str}\r\n";
                 }      
             }
         }
