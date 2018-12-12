@@ -26,21 +26,26 @@ pipeline {
                             println "2) upstreamBuild.toString() : " + upstreamBuild.toString()
                             println "3) upstreamBuild.getProjectName() : " + upstreamBuild.getProjectName()
                             println "4) upstreamBuild : " + upstreamBuild
-                    }
 
-                    if( !upstreamBuild ){
-                        println( "Object is null\r\n" );
-                        return;
-                    }
-                    if( !upstreamBuild.metaClass && upstreamBuild.getClass() ){
-                        printAllMethods( upstreamBuild.getClass() );
-                        return;
-                    }
-                    def str = "class ${upstreamBuild.getClass().name} functions:\r\n";
-                    upstreamBuild.metaClass.methods.name.unique().each{ 
-                        str += it+"(); "; 
-                    }
-                    println "${str}\r\n";
+
+                             if( !upstreamBuild ){
+                                println( "Object is null\r\n" );
+                                return;
+                            }
+                            if( !upstreamBuild.metaClass && upstreamBuild.getClass() ){
+                                printAllMethods( upstreamBuild.getClass() );
+                                return;
+                            }
+                            def str = "class ${upstreamBuild.getClass().name} functions:\r\n";
+                            upstreamBuild.metaClass.methods.name.unique().each{ 
+                                str += it+"(); "; 
+                            }
+                            println "${str}\r\n";
+
+                            
+                            }
+
+                   
                 }      
             }
         }
