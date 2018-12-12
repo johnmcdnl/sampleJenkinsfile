@@ -58,7 +58,7 @@ pipeline {
 
         stage('Build') {
             steps {                
-                echo 'Build'
+                echo 'Build on branch-a'
             }
         }
 
