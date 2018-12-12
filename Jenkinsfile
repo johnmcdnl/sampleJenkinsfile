@@ -21,7 +21,7 @@ pipeline {
             steps {
                 // echo currentBuild.rawBuild.getCause(hudson.model.Cause$UpstreamCause)
                 // echo currentBuild.getUpstreamBuilds()
-                currentBuild.getUpstreamBuilds().collect { it -> echo it }
+                currentBuild.getUpstreamBuilds().collect { myObject -> echo myObject }
                 echo 'Build'
             }
         }
