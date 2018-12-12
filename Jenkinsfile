@@ -20,7 +20,7 @@ pipeline {
 
             steps {
                 // echo currentBuild.rawBuild.getCause(hudson.model.Cause$UpstreamCause)
-                echo currentBuild.getUpstreamBuilds()
+                // echo currentBuild.getUpstreamBuilds()
                 echo currentBuild.getUpstreamBuilds().get(0).getProjectName()
                 echo 'Build'
             }
