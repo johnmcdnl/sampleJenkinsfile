@@ -17,11 +17,16 @@ pipeline {
 
     stages {
         stage('Build') {
-
+            node{
+                currentBuild.getUpstreamBuilds()
+                    .collect { 
+                        myObject -> echo myObject 
+                    }
+            }
             steps {
                 // echo currentBuild.rawBuild.getCause(hudson.model.Cause$UpstreamCause)
                 // echo currentBuild.getUpstreamBuilds()
-                currentBuild.getUpstreamBuilds().collect { myObject -> echo myObject }
+                
                 echo 'Build'
             }
         }
