@@ -20,7 +20,7 @@ pipeline {
 
             getBranchNames(
                 jenkins.model.Jenkins.instance.getItem(
-                    upstreamBuild.getFullProjectName().minus(upstreamBuild.getProjectName())
+                    upstreamBuild.getFullProjectName().minus("/" + upstreamBuild.getProjectName())
                 )
             )
 
@@ -40,12 +40,12 @@ pipeline {
     }
     stage('Build') {
       parallel {
-        stage('Build') {
+        stage('Build parallel Stage 1') {
           steps {
             echo 'Build'
           }
         }
-        stage('') {
+        stage('Build parallel Stage 2') {
           steps {
             echo 'Another Branch!'
           }
