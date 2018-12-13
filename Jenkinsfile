@@ -49,14 +49,16 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test'
-                echo ${USER_CREDENTIALS_USR}
-                echo ${USER_CREDENTIALS_PSW}
+                echo "${USER_CREDENTIALS_USR}"
+                echo "${USER_CREDENTIALS_PSW}"
+                
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploy'
+                sh 'printenv'
             }
         }
     }
