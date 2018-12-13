@@ -1,64 +1,52 @@
-@NonCPS
-def getBranchNames(project){
-    echo "start getBranchNames"
-    project.getItems().each { job ->
-        echo job.getProperty(org.jenkinsci.plugins.workflow.multibranch.BranchJobProperty.class).getBranch().getName()
-    }
-    echo "end getBranchNames"
-}
-
 pipeline {
 
     agent any
 
     stages {
-        stage('find upstream job') {
-            steps {
-                script {
-                def upstreamBuilds = currentBuild.getUpstreamBuilds()
-                    for(upstreamBuild in upstreamBuilds) {
-                        println "1) upstreamBuild.getFullProjectName().minus(upstreamBuild.getProjectName() : " + upstreamBuild.getFullProjectName().minus(upstreamBuild.getProjectName())
-                        println "2) upstreamBuild.getFullProjectName() : " + upstreamBuild.getFullProjectName()
-                        println "3) upstreamBuild.getProjectName() : " + upstreamBuild.getProjectName()
 
-                        getBranchNames(
-                            jenkins.model.Jenkins.instance.getItem(
-                                upstreamBuild.getFullProjectName().minus("/" + upstreamBuild.getProjectName())
-                            )
-                        )
-                    }
-                }
+        stage('Build') {
+            steps {
+                echo 'Build'
             }
         }
 
         stage('Build') {
-            parallel {
-                stage('Build parallel Stage 1') {
+            parallel (
+                stage('Build Test Suite') {
                     steps {
-                        echo 'Build'
+                        echo 'Build Test Suite'
                     }
                 }
-                stage('Build parallel Stage 2') {
+                stage('Build Apps') {
                     steps {
-                        echo 'Another Branch!'
+                        echo 'Here will build the correct version of each project under test'
                     }
                 }
+            )
+            steps {
+                echo 'Start docker-compose here'
             }
         }
 
         stage('Test') {
+
+            options {
+                retry(3)
+            }
+
             steps {
                 echo 'Test'
                 echo "USER_CREDENTIALS_USR ${USER_CREDENTIALS_USR}"
                 echo "USER_CREDENTIALS_PSW ${USER_CREDENTIALS_PSW}"
                 echo "TAS_USERNAME ${TAS_USERNAME}"
                 echo "TAS_PASSWORD ${TAS_PASSWORD}"
+                echo 'Test Complete'
             }
         }
 
-        stage('Deploy') {
+        stage('Report') {
             steps {
-                echo 'Deploy'
+                echo 'Report the results'
             }
         }
     }
@@ -71,25 +59,12 @@ pipeline {
                 numToKeepStr: '50'
             )
         )
-        timeout(
-            time: 1, 
-            unit: 'HOURS'
-        )
+        timeout(time: 1, unit: 'HOURS')
         parallelsAlwaysFailFast()
     }
 
-    // parameters {
-    //     // credentials (
-    //     //     credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', 
-    //     //     defaultValue: 'tas_john', 
-    //     //     description: 'tas_john', 
-    //     //     name: 'tas_john', 
-    //     //     required: true
-    //     // )
-    // }
-
     environment {
-        USER_CREDENTIALS = credentials('tas_john_2')
+        USER_CREDENTIALS = credentials('tas_john')
         TAS_BROWSER = "firefox"
         TAS_BROWSER_HEADLESS_MODE = "true"
         TAS_DOMAIN = "talentappstore.com"
@@ -100,7 +75,8 @@ pipeline {
     triggers {
         upstream(
             threshold: hudson.model.Result.SUCCESS, 
-            upstreamProjects: 'fakeUpstreamProject/master')
+            upstreamProjects: 'fakeUpstreamProject/master'
+        )
         cron('H 07-19 * * *')
         pollSCM('* * * * *')
     }
