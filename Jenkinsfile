@@ -64,10 +64,10 @@ pipeline {
     parallelsAlwaysFailFast()
   }
   triggers {
-    upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: '''
+    upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: """
                 project-name-1,
                 project-name-2
-            ''')
+            """)
     cron('H 07-19 * * *')
     pollSCM('* * * * *')
   }
