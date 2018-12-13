@@ -19,8 +19,10 @@ pipeline {
             println "4) upstreamBuild : " + upstreamBuild
 
 
-            getBranchNames(jenkins.model.Jenkins.instance.getItem(
-                upstreamBuild.getFullProjectName().minus(upstreamBuild.getProjectName())
+            getBranchNames(
+                jenkins.model.Jenkins.instance.getItem(
+                    upstreamBuild.getFullProjectName().minus(upstreamBuild.getProjectName())
+                )
             )
 
 
