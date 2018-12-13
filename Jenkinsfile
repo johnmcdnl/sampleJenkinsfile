@@ -5,20 +5,20 @@ pipeline {
     stages {
         stage('Build Apps') {
             parallel {
-                stage('Build Tests') {
-                    steps {
-                        echo 'Build Test Suite'
-                    }
-                }
-                stage('Build Apps') {
-                    parallel {
-                        stage('App1') {steps {echo 'build App1'}}
-                        stage('App2') {steps {echo 'build App2'}}
-                        stage('App3') {steps {echo 'build App3'}}
-                    }
-                }
+                stage('TestSuite') {steps {echo 'Build Test Suite'}}
+                stage('App1') {steps {echo 'Build App1'}}
+                stage('App2') {steps {echo 'Build App2'}}
+                stage('App3') {steps {echo 'Build App3'}}
+                stage('App4') {steps {echo 'Build App4'}}
+                stage('App5') {steps {echo 'Build App5'}}
+                stage('App6') {steps {echo 'Build App6'}}
+                stage('App7') {steps {echo 'Build App7'}}
+                stage('App8') {steps {echo 'Build App8'}}
+                stage('App9') {steps {echo 'Build App9'}}
             }
         }
+            
+        
 
         stage('Dockerise') {
             steps {
