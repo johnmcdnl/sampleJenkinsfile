@@ -23,7 +23,6 @@ pipeline {
                 upstreamBuild.getFullProjectName().minus(upstreamBuild.getProjectName())
             )
 
-            echo "done reading jobs"
 
           }
         }
