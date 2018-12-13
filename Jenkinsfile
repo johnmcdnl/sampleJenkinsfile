@@ -115,16 +115,20 @@ pipeline {
     cleanup {
       echo 'do this cleanup'
       echo 'docker-compose down'
-
     }
 
   }
   options {
+    quietPeriod(5)
+    timestamps()
+    durabilityHint 'PERFORMANCE_OPTIMIZED'
     disableConcurrentBuilds()
-    buildDiscarder(logRotator(daysToKeepStr: '50', numToKeepStr: '50'))
     timeout(time: 1, unit: 'HOURS')
     parallelsAlwaysFailFast()
-    timestamps()
+    skipStagesAfterUnstable()
+    rateLimitBuilds([count: 20, durationName: 'hour', userBoost: true])
+    preserveStashes(buildCount: 5)
+    buildDiscarder(logRotator(daysToKeepStr: '50', numToKeepStr: '50'))
   }
   triggers {
     upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: 'fakeUpstreamProject/master')
