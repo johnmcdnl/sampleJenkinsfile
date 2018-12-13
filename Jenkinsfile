@@ -126,7 +126,6 @@ pipeline {
     timeout(time: 1, unit: 'HOURS')
     parallelsAlwaysFailFast()
     skipStagesAfterUnstable()
-    rateLimitBuilds([throttle: 20, durationName: 'hour', userBoost: true])
     preserveStashes(buildCount: 5)
     buildDiscarder(logRotator(daysToKeepStr: '50', numToKeepStr: '50'))
   }
