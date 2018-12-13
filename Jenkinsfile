@@ -51,6 +51,8 @@ pipeline {
                 echo 'Test'
                 echo "USER_CREDENTIALS_USR ${USER_CREDENTIALS_USR}"
                 echo "USER_CREDENTIALS_PSW ${USER_CREDENTIALS_PSW}"
+                echo "TAS_USERNAME ${TAS_USERNAME}"
+                echo "TAS_PASSWORD ${TAS_PASSWORD}"
             }
         }
 
