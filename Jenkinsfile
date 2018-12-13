@@ -73,4 +73,10 @@ pipeline {
     cron('H 07-19 * * *')
     pollSCM('* * * * *')
   }
+
+    post {
+      always{
+          emailext (body: 'Some message goes here', subject: 'SampleJenkinsfile Result', to: 'john.mcdonnell@aotal.com')
+      }
+  }
 }
