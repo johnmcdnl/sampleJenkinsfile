@@ -61,11 +61,10 @@ pipeline {
 
     environment {
         USER_CREDENTIALS = credentials('tas_john')
-        TAS_BROWSER = "firefox"
-        TAS_BROWSER_HEADLESS_MODE = "true"
-        TAS_DOMAIN = "talentappstore.com"
-        TAS_USERNAME = "${USER_CREDENTIALS_USR}"
-        TAS_PASSWORD = "${USER_CREDENTIALS_PSW}"
+        BROWSER = "firefox"
+        BROWSER_HEADLESS_MODE = "true"
+        USERNAME = "${USER_CREDENTIALS_USR}"
+        PASSWORD = "${USER_CREDENTIALS_PSW}"
     }
 
     triggers {
@@ -89,7 +88,7 @@ pipeline {
         //     emailext (
         //         body: 'regression', 
         //         subject: 'SampleJenkinsfile regression', 
-        //         to: 'john.mcdonnell@aotal.com'
+        //         to: 'john.mcdonnell@email.com'
         //     )
         // }
         
@@ -97,7 +96,7 @@ pipeline {
         //     emailext (
         //         body: 'unsuccessful', 
         //         subject: 'SampleJenkinsfile unsuccessful', 
-        //         to: 'john.mcdonnell@aotal.com'
+        //         to: 'john.mcdonnell@email.com'
         //     )
         // }
 
@@ -105,7 +104,7 @@ pipeline {
         //     emailext (
         //         body: 'fixed', 
         //         subject: 'SampleJenkinsfile fixed', 
-        //         to: 'john.mcdonnell@aotal.com'
+        //         to: 'john.mcdonnell@email.com'
         //     )
         // }
 
