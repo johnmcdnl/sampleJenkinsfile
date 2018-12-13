@@ -3,22 +3,24 @@ pipeline {
     agent any
 
     stages {
-        stage('') {
+        stage('Build Apps') {
             parallel {
-                stage('Build Test Suite') {
+                stage('Build Tests') {
                     steps {
                         echo 'Build Test Suite'
                     }
                 }
                 stage('Build Apps') {
-                    steps {
-                        echo 'Here will build the correct version of each project under test'
+                    parallel {
+                        stage('App1') {steps {echo 'build App1'}}
+                        stage('App2') {steps {echo 'build App2'}}
+                        stage('App3') {steps {echo 'build App3'}}
                     }
                 }
             }
         }
 
-        stage('Dockerise Apps') {
+        stage('Dockerise') {
             steps {
                 echo 'Start docker-compose here'
             }
