@@ -84,7 +84,9 @@ pipeline {
     post {
         always {
             echo "do this always"
-            sh 'printenv'
+            node {
+                sh 'printenv'
+            }
         }
 
         // regression {
