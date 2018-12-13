@@ -59,7 +59,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploy'
-                sh 'printenv'
             }
         }
     }
@@ -109,19 +108,32 @@ pipeline {
     post {
         always {
             echo "do this always"
+            sh 'printenv'
         }
 
-        regression {
-            emailext (body: 'regression', subject: 'SampleJenkinsfile regression', to: 'john.mcdonnell@aotal.com')
-        }
+        // regression {
+        //     emailext (
+        //         body: 'regression', 
+        //         subject: 'SampleJenkinsfile regression', 
+        //         to: 'john.mcdonnell@aotal.com'
+        //     )
+        // }
         
-        unsuccessful {
-            emailext (body: 'unsuccessful', subject: 'SampleJenkinsfile unsuccessful', to: 'john.mcdonnell@aotal.com')
-        }
+        // unsuccessful {
+        //     emailext (
+        //         body: 'unsuccessful', 
+        //         subject: 'SampleJenkinsfile unsuccessful', 
+        //         to: 'john.mcdonnell@aotal.com'
+        //     )
+        // }
 
-        fixed {
-            emailext (body: 'fixed', subject: 'SampleJenkinsfile fixed', to: 'john.mcdonnell@aotal.com')
-        }
+        // fixed {
+        //     emailext (
+        //         body: 'fixed', 
+        //         subject: 'SampleJenkinsfile fixed', 
+        //         to: 'john.mcdonnell@aotal.com'
+        //     )
+        // }
 
         cleanup {
             echo "do this cleanup"
