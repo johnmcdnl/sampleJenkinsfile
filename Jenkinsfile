@@ -17,8 +17,10 @@ pipeline {
                     }
                 }
             }
-            steps {
-                echo 'Start docker-compose here'
+            stage('Dockerise Apps') {
+                steps {
+                    echo 'Start docker-compose here'
+                }
             }
         }
 
