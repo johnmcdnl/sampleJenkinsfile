@@ -4,23 +4,23 @@ pipeline {
 
     stages {
     
-         stage('Prepare') {
-            steps {
-                parallel {
-                    steps {
-                        echo 'Build Test Suite'
-                    }
-                
-                    steps {
-                        echo 'Here will build the correct version of each project under test'
-                    }
+        parallel {
+            stage('Build Test Suite') {
+                steps {
+                    echo 'Build Test Suite'
                 }
-                echo 'Start docker-compose here'
+            }
+            stage('Build Apps') {
+                steps {
+                    echo 'Here will build the correct version of each project under test'
+                }
             }
         }
 
         stage('Dockerise Apps') {
-            
+            steps {
+                echo 'Start docker-compose here'
+            }
         }
 
         stage('Test') {
