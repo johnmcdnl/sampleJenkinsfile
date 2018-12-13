@@ -19,19 +19,10 @@ pipeline {
             println "4) upstreamBuild : " + upstreamBuild
 
 
-            if( !upstreamBuild ){
-              println( "Object is null\r\n" );
-              return;
-            }
-            if( !upstreamBuild.metaClass && upstreamBuild.getClass() ){
-              printAllMethods( upstreamBuild.getClass() );
-              return;
-            }
-            def str = "class ${upstreamBuild.getClass().name} functions:\r\n";
-            upstreamBuild.metaClass.methods.name.unique().each{
-              str += it+"(); ";
-            }
-            println "${str}\r\n";
+            getBranchNames(jenkins.model.Jenkins.instance.getItem(
+                env.JOB_NAME.minus("/${env.JOB_BASE_NAME}"))
+            )
+            echo "done reading jobs"
 
 
           }
