@@ -13,10 +13,9 @@ pipeline {
         script {
           def upstreamBuilds = currentBuild.getUpstreamBuilds()
           for(upstreamBuild in upstreamBuilds) {
-            println "1) upstreamBuild.toString() " + upstreamBuild.toString()
-            println "2) upstreamBuild.toString() : " + upstreamBuild.toString()
+            println "1) upstreamBuild.getFullProjectName().minus(upstreamBuild.getProjectName() : " + upstreamBuild.getFullProjectName().minus(upstreamBuild.getProjectName()
+            println "2) upstreamBuild.getFullProjectName() : " + upstreamBuild.getFullProjectName()
             println "3) upstreamBuild.getProjectName() : " + upstreamBuild.getProjectName()
-            println "4) upstreamBuild : " + upstreamBuild
 
 
             getBranchNames(
