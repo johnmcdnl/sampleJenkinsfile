@@ -114,6 +114,7 @@ pipeline {
     buildDiscarder(logRotator(daysToKeepStr: '50', numToKeepStr: '50'))
     timeout(time: 1, unit: 'HOURS')
     parallelsAlwaysFailFast()
+    timestamps()
   }
   triggers {
     upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: 'fakeUpstreamProject/master')
