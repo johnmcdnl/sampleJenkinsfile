@@ -66,9 +66,7 @@ pipeline {
   triggers {
     upstream(
         threshold: hudson.model.Result.SUCCESS, 
-        upstreamProjects: """
-                project-name-2
-            """)
+        upstreamProjects: 'project-name-2')
     cron('H 07-19 * * *')
     pollSCM('* * * * *')
   }
