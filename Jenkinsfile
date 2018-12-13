@@ -121,7 +121,7 @@ pipeline {
   options {
     quietPeriod(5)
     timestamps()
-    durabilityHint 'PERFORMANCE_OPTIMIZED'
+    // durabilityHint 'PERFORMANCE_OPTIMIZED'
     disableConcurrentBuilds()
     timeout(time: 1, unit: 'HOURS')
     parallelsAlwaysFailFast()
