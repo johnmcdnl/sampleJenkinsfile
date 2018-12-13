@@ -20,11 +20,10 @@ pipeline {
 
 
             getBranchNames(jenkins.model.Jenkins.instance.getItem(
-                upstreamBuild.getFullProjectName().minus(upstreamBuild.getProjectName())
+                F.getFullProjectName().minus(upstreamBuild.getProjectName())
             )
 
-            println env.JOB_NAME
-            println env.JOB_BASE_NAME 
+
             echo "done reading jobs"
 
 
