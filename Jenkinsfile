@@ -3,12 +3,6 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Build') {
-            steps {
-                echo 'Build'
-            }
-        }
     
         stage('Build') {
             parallel {
@@ -84,9 +78,9 @@ pipeline {
     post {
         always {
             echo "do this always"
-            node {
-                sh 'printenv'
-            }
+            // node {
+            //     sh 'printenv'
+            // }
         }
 
         // regression {
