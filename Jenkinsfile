@@ -34,13 +34,13 @@ pipeline {
             println 'upstreamBuild.getStartTimeInMillis();  --- ' + upstreamBuild.getStartTimeInMillis(); 
             println 'upstreamBuild.getTimeInMillis();  --- ' + upstreamBuild.getTimeInMillis(); 
             println 'upstreamBuild.getUpstreamBuilds();  --- ' + upstreamBuild.getUpstreamBuilds(); 
-            println 'upstreamBuild.isKeepLog();  --- ' + upstreamBuild.isKeepLog(); 
-            println 'upstreamBuild.resultIsBetterOrEqualTo();  --- ' + upstreamBuild.resultIsBetterOrEqualTo(); 
-            println 'upstreamBuild.resultIsWorseOrEqualTo();  --- ' + upstreamBuild.resultIsWorseOrEqualTo(); 
-            println 'upstreamBuild.setDescription();  --- ' + upstreamBuild.setDescription(); 
-            println 'upstreamBuild.setDisplayName();  --- ' + upstreamBuild.setDisplayName(); 
-            println 'upstreamBuild.setKeepLog();  --- ' + upstreamBuild.setKeepLog(); 
-            println 'upstreamBuild.setResult(); --- ' + upstreamBuild.setResult();
+            // println 'upstreamBuild.isKeepLog();  --- ' + upstreamBuild.isKeepLog(); 
+            // println 'upstreamBuild.resultIsBetterOrEqualTo();  --- ' + upstreamBuild.resultIsBetterOrEqualTo(); 
+            // println 'upstreamBuild.resultIsWorseOrEqualTo();  --- ' + upstreamBuild.resultIsWorseOrEqualTo(); 
+            // println 'upstreamBuild.setDescription();  --- ' + upstreamBuild.setDescription(); 
+            // println 'upstreamBuild.setDisplayName();  --- ' + upstreamBuild.setDisplayName(); 
+            // println 'upstreamBuild.setKeepLog();  --- ' + upstreamBuild.setKeepLog(); 
+            // println 'upstreamBuild.setResult(); --- ' + upstreamBuild.setResult();
 
             if( !upstreamBuild ){
               println( "Object is null\r\n" );
