@@ -6,13 +6,13 @@ pipeline {
         script {
           def upstreamBuilds = currentBuild.getUpstreamBuilds()
           for(upstreamBuild in upstreamBuilds) {
-            println 'upstreamBuild.equals();  --- ' + upstreamBuild.equals(); 
+            // println 'upstreamBuild.equals();  --- ' + upstreamBuild.equals(); 
             println 'upstreamBuild.getClass(); --- ' + upstreamBuild.getClass();
             println 'upstreamBuild.hashCode();  --- ' + upstreamBuild.hashCode(); 
-            println 'upstreamBuild.notify();  --- ' + upstreamBuild.notify(); 
-            println 'upstreamBuild.notifyAll(); --- ' + upstreamBuild.notifyAll();
+            // println 'upstreamBuild.notify();  --- ' + upstreamBuild.notify(); 
+            // println 'upstreamBuild.notifyAll(); --- ' + upstreamBuild.notifyAll();
             println 'upstreamBuild.toString(); --- ' + upstreamBuild.toString();
-            println 'upstreamBuild.wait();  --- ' + upstreamBuild.wait(); 
+            // println 'upstreamBuild.wait();  --- ' + upstreamBuild.wait(); 
             println 'upstreamBuild.getAbsoluteUrl();  --- ' + upstreamBuild.getAbsoluteUrl(); 
             println 'upstreamBuild.getBuildCauses();  --- ' + upstreamBuild.getBuildCauses(); 
             println 'upstreamBuild.getBuildVariables();  --- ' + upstreamBuild.getBuildVariables(); 
