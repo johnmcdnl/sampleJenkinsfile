@@ -34,14 +34,19 @@ pipeline {
     }
     stage('Build') {
       parallel {
-        stage('Build') {
+        stage('Build Stage 1') {
           steps {
-            echo 'Build'
+            echo 'Stage #1'
           }
         }
-        stage('') {
+        stage('Build Stage 2') {
           steps {
-            echo 'Hello World'
+            echo 'Stage #2'
+          }
+        }
+        stage('Build Stage 3') {
+          steps {
+            echo 'Stage #3'
           }
         }
       }
