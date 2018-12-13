@@ -69,7 +69,7 @@ pipeline {
     parallelsAlwaysFailFast()
   }
   triggers {
-    upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: "fakeUpstreamProject/" + env.BRANCH_NAME.replaceAll("/", "%2F") 
+    upstream(threshold: hudson.model.Result.SUCCESS, upstreamProjects: "fakeUpstreamProject/" + env.BRANCH_NAME.replaceAll("/", "%2F")) 
     cron('H 07-19 * * *')
     pollSCM('* * * * *')
   }
