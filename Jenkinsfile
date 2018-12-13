@@ -5,20 +5,48 @@ pipeline {
     stages {
         stage('Build Apps') {
             parallel {
-                stage('TestSuite') {steps {echo 'Build Test Suite'}}
-                stage('App1') {steps {echo 'Build App1'}}
-                stage('App2') {steps {echo 'Build App2'}}
-                stage('App3') {steps {echo 'Build App3'}}
-                stage('App4') {steps {echo 'Build App4'}}
-                stage('App5') {steps {echo 'Build App5'}}
-                stage('App6') {steps {echo 'Build App6'}}
-                stage('App7') {steps {echo 'Build App7'}}
-                stage('App8') {steps {echo 'Build App8'}}
-                stage('App9') {steps {echo 'Build App9'}}
+                stage('TestSuite') {steps {
+                    echo 'Build TestSuite'
+                    sh "sleep 5"
+                }}
+                stage('App1') {steps {
+                    echo 'Build App1'
+                    sh "sleep 5"
+                }}
+                stage('App2') {steps {
+                    echo 'Build App2'
+                    sh "sleep 5"
+                }}
+               stage('App3') {steps {
+                    echo 'Build App3'
+                    sh "sleep 5"
+                }}
+               stage('App4') {steps {
+                    echo 'Build App4'
+                    sh "sleep 5"
+                }}
+                stage('App5') {steps {
+                    echo 'Build App5'
+                    sh "sleep 5"
+                }}
+                stage('App6') {steps {
+                    echo 'Build App6'
+                    sh "sleep 5"
+                }}
+                stage('App7') {steps {
+                    echo 'Build App7'
+                    sh "sleep 5"
+                }}
+                stage('App8') {steps {
+                    echo 'Build App8'
+                    sh "sleep 5"
+                }}
+                stage('App9') {steps {
+                    echo 'Build App9'
+                    sh "sleep 5"
+                }}
             }
-        }
-            
-        
+        } 
 
         stage('Dockerise') {
             steps {
@@ -112,6 +140,7 @@ pipeline {
 
         cleanup {
             echo "do this cleanup"
+            echo "docker-compose down"
         }
 
     }
