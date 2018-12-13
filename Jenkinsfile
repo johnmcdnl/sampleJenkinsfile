@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     stages {
-        stage {
+        stage() {
             parallel {
                 stage('Build Test Suite') {
                     steps {
