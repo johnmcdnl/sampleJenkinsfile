@@ -6,41 +6,30 @@ pipeline {
         script {
           def upstreamBuilds = currentBuild.getUpstreamBuilds()
           for(upstreamBuild in upstreamBuilds) {
-            // println 'upstreamBuild.equals();  --- ' + upstreamBuild.equals(); 
-            println 'upstreamBuild.getClass(); --- ' + upstreamBuild.getClass();
-            println 'upstreamBuild.hashCode();  --- ' + upstreamBuild.hashCode(); 
-            // println 'upstreamBuild.notify();  --- ' + upstreamBuild.notify(); 
-            // println 'upstreamBuild.notifyAll(); --- ' + upstreamBuild.notifyAll();
-            println 'upstreamBuild.toString(); --- ' + upstreamBuild.toString();
-            // println 'upstreamBuild.wait();  --- ' + upstreamBuild.wait(); 
-            println 'upstreamBuild.getAbsoluteUrl();  --- ' + upstreamBuild.getAbsoluteUrl(); 
-            println 'upstreamBuild.getBuildCauses();  --- ' + upstreamBuild.getBuildCauses(); 
-            println 'upstreamBuild.getBuildVariables();  --- ' + upstreamBuild.getBuildVariables(); 
-            println 'upstreamBuild.getChangeSets();  --- ' + upstreamBuild.getChangeSets(); 
-            println 'upstreamBuild.getCurrentResult();  --- ' + upstreamBuild.getCurrentResult(); 
-            println 'upstreamBuild.getDescription();  --- ' + upstreamBuild.getDescription(); 
-            println 'upstreamBuild.getDisplayName(); --- ' + upstreamBuild.getDisplayName();
-            println 'upstreamBuild.getDuration();  --- ' + upstreamBuild.getDuration(); 
-            println 'upstreamBuild.getDurationString(); --- ' + upstreamBuild.getDurationString();
-            println 'upstreamBuild.getFullDisplayName();  --- ' + upstreamBuild.getFullDisplayName(); 
-            println 'upstreamBuild.getFullProjectName(); --- ' + upstreamBuild.getFullProjectName();
-            println 'upstreamBuild.getId();  --- ' + upstreamBuild.getId(); 
-            println 'upstreamBuild.getNextBuild(); --- ' + upstreamBuild.getNextBuild();
-            println 'upstreamBuild.getNumber(); --- ' + upstreamBuild.getNumber();
-            println 'upstreamBuild.getPreviousBuild(); --- ' + upstreamBuild.getPreviousBuild();
-            println 'upstreamBuild.getProjectName();  --- ' + upstreamBuild.getProjectName(); 
-            println 'upstreamBuild.getRawBuild();  --- ' + upstreamBuild.getRawBuild(); 
-            println 'upstreamBuild.getResult();  --- ' + upstreamBuild.getResult(); 
-            println 'upstreamBuild.getStartTimeInMillis();  --- ' + upstreamBuild.getStartTimeInMillis(); 
-            println 'upstreamBuild.getTimeInMillis();  --- ' + upstreamBuild.getTimeInMillis(); 
-            println 'upstreamBuild.getUpstreamBuilds();  --- ' + upstreamBuild.getUpstreamBuilds(); 
-            // println 'upstreamBuild.isKeepLog();  --- ' + upstreamBuild.isKeepLog(); 
-            // println 'upstreamBuild.resultIsBetterOrEqualTo();  --- ' + upstreamBuild.resultIsBetterOrEqualTo(); 
-            // println 'upstreamBuild.resultIsWorseOrEqualTo();  --- ' + upstreamBuild.resultIsWorseOrEqualTo(); 
-            // println 'upstreamBuild.setDescription();  --- ' + upstreamBuild.setDescription(); 
-            // println 'upstreamBuild.setDisplayName();  --- ' + upstreamBuild.setDisplayName(); 
-            // println 'upstreamBuild.setKeepLog();  --- ' + upstreamBuild.setKeepLog(); 
-            // println 'upstreamBuild.setResult(); --- ' + upstreamBuild.setResult();
+            println '\t \t upstreamBuild.getClass(); --- ' + upstreamBuild.getClass();
+            println '\t \t upstreamBuild.hashCode();  --- ' + upstreamBuild.hashCode(); 
+            println '\t \t upstreamBuild.toString(); --- ' + upstreamBuild.toString();
+            println '\t \t upstreamBuild.getAbsoluteUrl();  --- ' + upstreamBuild.getAbsoluteUrl(); 
+            println '\t \t upstreamBuild.getBuildCauses();  --- ' + upstreamBuild.getBuildCauses(); 
+            println '\t \t upstreamBuild.getBuildVariables();  --- ' + upstreamBuild.getBuildVariables(); 
+            println '\t \t upstreamBuild.getChangeSets();  --- ' + upstreamBuild.getChangeSets(); 
+            println '\t \t upstreamBuild.getCurrentResult();  --- ' + upstreamBuild.getCurrentResult(); 
+            println '\t \t upstreamBuild.getDescription();  --- ' + upstreamBuild.getDescription(); 
+            println '\t \t upstreamBuild.getDisplayName(); --- ' + upstreamBuild.getDisplayName();
+            println '\t \t upstreamBuild.getDuration();  --- ' + upstreamBuild.getDuration(); 
+            println '\t \t upstreamBuild.getDurationString(); --- ' + upstreamBuild.getDurationString();
+            println '\t \t upstreamBuild.getFullDisplayName();  --- ' + upstreamBuild.getFullDisplayName(); 
+            println '\t \t upstreamBuild.getFullProjectName(); --- ' + upstreamBuild.getFullProjectName();
+            println '\t \t upstreamBuild.getId();  --- ' + upstreamBuild.getId(); 
+            println '\t \t upstreamBuild.getNextBuild(); --- ' + upstreamBuild.getNextBuild();
+            println '\t \t upstreamBuild.getNumber(); --- ' + upstreamBuild.getNumber();
+            println '\t \t upstreamBuild.getPreviousBuild(); --- ' + upstreamBuild.getPreviousBuild();
+            println '\t \t upstreamBuild.getProjectName();  --- ' + upstreamBuild.getProjectName(); 
+            println '\t \t upstreamBuild.getRawBuild();  --- ' + upstreamBuild.getRawBuild(); 
+            println '\t \t upstreamBuild.getResult();  --- ' + upstreamBuild.getResult(); 
+            println '\t \t upstreamBuild.getStartTimeInMillis();  --- ' + upstreamBuild.getStartTimeInMillis(); 
+            println '\t \t upstreamBuild.getTimeInMillis();  --- ' + upstreamBuild.getTimeInMillis(); 
+            println '\t \t upstreamBuild.getUpstreamBuilds();  --- ' + upstreamBuild.getUpstreamBuilds(); 
 
             if( !upstreamBuild ){
               println( "Object is null\r\n" );
