@@ -84,13 +84,32 @@ pipeline {
       options {
         retry(3)
       }
-      steps {
-        echo 'Test'
-        echo "USER_CREDENTIALS_USR ${USER_CREDENTIALS_USR}"
-        echo "USER_CREDENTIALS_PSW ${USER_CREDENTIALS_PSW}"
-        echo "USERNAME ${USERNAME}"
-        echo "PASSWORD ${PASSWORD}"
-        echo 'Test Complete'
+      parallel {
+        stage('Frontend Tests') {
+          steps {
+            echo 'Test Frontend begin'
+            echo "USER_CREDENTIALS_USR ${USER_CREDENTIALS_USR}"
+            echo "USER_CREDENTIALS_PSW ${USER_CREDENTIALS_PSW}"
+            echo "USERNAME ${USERNAME}"
+            echo "PASSWORD ${PASSWORD}"
+            echo 'Test Frontend Test Complete'
+          }
+        }
+        stage('API Tests') {
+          steps {
+            echo 'Running API Tests'
+          }
+        }
+        stage('Performance Tests') {
+          steps {
+            echo 'Running Performance Tests'
+          }
+        }
+        stage('Contract Tests') {
+          steps {
+            echo 'Running AContractPI Tests'
+          }
+        }
       }
     }
     stage('Report') {
@@ -121,7 +140,7 @@ pipeline {
   options {
     quietPeriod(5)
     timestamps()
-    // durabilityHint 'PERFORMANCE_OPTIMIZED'
+    durabilityHint 'PERFORMANCE_OPTIMIZED'
     disableConcurrentBuilds()
     timeout(time: 1, unit: 'HOURS')
     parallelsAlwaysFailFast()
