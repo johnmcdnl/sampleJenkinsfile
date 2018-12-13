@@ -51,7 +51,6 @@ pipeline {
                 echo 'Test'
                 echo "USER_CREDENTIALS_USR ${USER_CREDENTIALS_USR}"
                 echo "USER_CREDENTIALS_PSW ${USER_CREDENTIALS_PSW}"
-                
             }
         }
 
@@ -78,18 +77,23 @@ pipeline {
         parallelsAlwaysFailFast()
     }
 
-    parameters {
-        credentials (
-            credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', 
-            defaultValue: 'tas_john', 
-            description: 'tas_john', 
-            name: 'tas_john', 
-            required: true
-        )
-    }
+    // parameters {
+    //     // credentials (
+    //     //     credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', 
+    //     //     defaultValue: 'tas_john', 
+    //     //     description: 'tas_john', 
+    //     //     name: 'tas_john', 
+    //     //     required: true
+    //     // )
+    // }
 
     environment {
         USER_CREDENTIALS = credentials('tas_john')
+        TAS_BROWSER = "firefox"
+        TAS_BROWSER_HEADLESS_MODE = "true"
+        TAS_DOMAIN = "talentappstore.com"
+        TAS_USERNAME = "${USER_CREDENTIALS_USR}"
+        TAS_PASSWORD = "${USER_CREDENTIALS_PSW}"
     }
 
     triggers {
