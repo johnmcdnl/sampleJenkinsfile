@@ -3,16 +3,17 @@ pipeline {
     agent any
 
     stages {
-    
-        parallel {
-            stage('Build Test Suite') {
-                steps {
-                    echo 'Build Test Suite'
+        stage {
+            parallel {
+                stage('Build Test Suite') {
+                    steps {
+                        echo 'Build Test Suite'
+                    }
                 }
-            }
-            stage('Build Apps') {
-                steps {
-                    echo 'Here will build the correct version of each project under test'
+                stage('Build Apps') {
+                    steps {
+                        echo 'Here will build the correct version of each project under test'
+                    }
                 }
             }
         }
