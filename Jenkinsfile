@@ -5,62 +5,72 @@ pipeline {
       parallel {
         stage('TestSuite') {
           steps {
-            echo 'Build TestSuite'
+            echo 'Build TestSuite Started'
             sleep 4
+            echo 'Build TestSuite Finished'
           }
         }
         stage('App1') {
           steps {
-            echo 'Build App1'
+            echo 'Build App1 Started'
             sleep 3
+            echo 'Build App1 Finished'
           }
         }
         stage('App2') {
           steps {
-            echo 'Build App2'
+            echo 'Build App2 Started'
             sleep 5
+            echo 'Build App2 Finished'
           }
         }
         stage('App3') {
           steps {
-            echo 'Build App3'
+            echo 'Build App3 Started'
             sleep 1
+            echo 'Build App3 Finished'
           }
         }
         stage('App4') {
           steps {
-            echo 'Build App4'
+            echo 'Build App4 Started'
             sleep 4
+            echo 'Build App4 Finished'
           }
         }
         stage('App5') {
           steps {
-            echo 'Build App5'
+            echo 'Build App5 Started'
             sleep 8
+            echo 'Build App5 Finished'
           }
         }
         stage('App6') {
           steps {
-            echo 'Build App6'
+            echo 'Build App6 Started'
             sleep 3
+            echo 'Build App6 Finished'
           }
         }
         stage('App7') {
           steps {
-            echo 'Build App7'
+            echo 'Build App7 Started'
             sleep 8
+            echo 'Build App7 Finished'
           }
         }
         stage('App8') {
           steps {
-            echo 'Build App8'
+            echo 'Build App8 Started'
             sleep 4
+            echo 'Build App8 Finished'
           }
         }
         stage('App9') {
           steps {
-            echo 'Build App9'
+            echo 'Build App9 Started'
             sleep 7
+            echo 'Build App9 Finished'
           }
         }
       }
