@@ -9,9 +9,9 @@ pipeline {
                 echo 'Build'
             }
         }
-
+    
         stage('Build') {
-            parallel (
+            parallel {
                 stage('Build Test Suite') {
                     steps {
                         echo 'Build Test Suite'
@@ -22,7 +22,7 @@ pipeline {
                         echo 'Here will build the correct version of each project under test'
                     }
                 }
-            )
+            }
             steps {
                 echo 'Start docker-compose here'
             }
