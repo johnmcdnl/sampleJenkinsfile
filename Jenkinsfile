@@ -102,7 +102,7 @@ pipeline {
 
     post {
         always {
-            
+            echo "do this always"
         }
 
         regression {
@@ -118,7 +118,7 @@ pipeline {
         }
 
         cleanup {
-            
+            echo "do this cleanup"
         }
 
     }
