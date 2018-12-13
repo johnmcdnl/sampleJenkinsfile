@@ -6,62 +6,61 @@ pipeline {
         stage('TestSuite') {
           steps {
             echo 'Build TestSuite'
-            sh 'sleep 5'
+            sleep 4
           }
         }
         stage('App1') {
           steps {
             echo 'Build App1'
-            sh 'sleep 5'
-            sleep 5
+            sleep 3
           }
         }
         stage('App2') {
           steps {
             echo 'Build App2'
-            sh 'sleep 5'
+            sleep 5
           }
         }
         stage('App3') {
           steps {
             echo 'Build App3'
-            sh 'sleep 5'
+            sleep 1
           }
         }
         stage('App4') {
           steps {
             echo 'Build App4'
-            sh 'sleep 5'
+            sleep 4
           }
         }
         stage('App5') {
           steps {
             echo 'Build App5'
-            sh 'sleep 5'
+            sleep 8
           }
         }
         stage('App6') {
           steps {
             echo 'Build App6'
-            sh 'sleep 5'
+            sleep 3
           }
         }
         stage('App7') {
           steps {
             echo 'Build App7'
-            sh 'sleep 5'
+            sleep 8
           }
         }
         stage('App8') {
           steps {
             echo 'Build App8'
-            sh 'sleep 5'
+            sleep 4
           }
         }
         stage('App9') {
           steps {
             echo 'Build App9'
-            sh 'sleep 5'
+            sleep 7
           }
         }
       }
