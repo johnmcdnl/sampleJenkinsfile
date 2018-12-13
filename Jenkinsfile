@@ -90,7 +90,7 @@ pipeline {
     // }
 
     environment {
-        USER_CREDENTIALS = credentials('tas_john')
+        USER_CREDENTIALS = credentials('tas_john_2')
         TAS_BROWSER = "firefox"
         TAS_BROWSER_HEADLESS_MODE = "true"
         TAS_DOMAIN = "talentappstore.com"
