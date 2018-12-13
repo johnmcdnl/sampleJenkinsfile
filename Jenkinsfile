@@ -22,6 +22,8 @@ pipeline {
             getBranchNames(jenkins.model.Jenkins.instance.getItem(
                 env.JOB_NAME.minus("/${env.JOB_BASE_NAME}"))
             )
+            println env.JOB_NAME
+            println env.JOB_BASE_NAME 
             echo "done reading jobs"
 
 
