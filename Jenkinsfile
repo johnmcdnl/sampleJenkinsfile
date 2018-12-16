@@ -127,8 +127,19 @@ pipeline {
   }
   post {
     always {
-      echo 'do this always'
-
+        echo 'do this always'
+        emailext (
+            to: 'john.mcdonnell439@gmail.com',
+            subject: 'Email Subject', 
+            body: 'Email Body', 
+            recipientProviders: [
+                culprits(), 
+                developers(), 
+                requestor()
+            ],
+            attachLog: true, 
+            compressLog: true, 
+        )
     }
 
     cleanup {
